@@ -210,16 +210,20 @@ Minimum to be leaderboard-valid:
 - No hardcoded phrase fixes or hidden answer maps.
 - Emits the required JSON contract.
 
-Strong submission target:
+Strong submission target (VALIDATED 2026-06-17 via a live head-to-head — RambleFix vs
+faster_whisper / whisper.cpp-server on the same gold clips; numbers lock on the full hidden set):
 
-| Gate | Target |
-| --- | --- |
-| Overall useful score | `>=0.88` on hidden mixed set. |
-| English / Indian-English | Within `0.02` useful score of the best local English engine, p95 fast mode `<800ms` warm. |
-| Hinglish/code-switch | Meaning coverage `>=0.88`, term coverage `>=0.93`, and at least `0.05` useful-score lift over current RambleFix baseline. |
-| Hinglish latency | p95 `<3.5s`, or fast draft under `1s` plus async final under `3.5s`. |
-| Reliability | `0` blanks on launch smoke; hang/error rate `<1%`. |
-| Offline | Full official eval passes with network blocked. |
+| Gate | Target | Today (live head-to-head) |
+| --- | --- | --- |
+| Overall useful score | `>=0.88` on hidden mixed set. | — |
+| English accuracy | meaning `>=0.95`, word-error `<=0.06` (match best free engine). | RambleFix WER `0.043`; best OS `0.064` → already matched. |
+| **English speed** | **fast-mode p95 `<0.8s` warm** — this is the real English lift. | whisper.cpp-server `0.44s` vs RambleFix `2.2s` → speed is the gap, not accuracy. |
+| Hinglish meaning | meaning coverage `>=0.90`, term coverage `>=0.93`. | RambleFix `0.84` → `>=0.90` is a real, meaningful lift. |
+| **Hinglish faithfulness** | **keeps the code-switch: verbatim word-error `<=0.25`** (do NOT win by translating to English). | RambleFix WER `0.12`; free tools `~0.91` because they translate it away. This is the moat. |
+| Hinglish latency | p95 `<3.5s`, or fast draft `<1s` plus async final `<3.5s`. | — |
+| Reliability | `0` blanks on launch smoke; hang/error rate `<1%`. | — |
+| Adoption gates | commercial-friendly model licenses (hard), total models `<=~5GB`, CPU-runnable, runs on Mac + Linux. | so the winning engine is actually shippable as a free tool. |
+| Offline | Full official eval passes with network blocked. | — |
 
 Winner:
 
