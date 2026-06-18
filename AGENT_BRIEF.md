@@ -241,6 +241,13 @@ Two hard rules that keep this from being easy (and protect the bounty):
   threshold. If nothing clearly beats it, no prize is awarded (it rolls over). The bounty only
   ever pays for a genuine step up over what exists today.
 
+**Leaderboard & eligibility (how it renders):** one objective score (the scorecard above) ranks
+**every** entry, and every entry is shown on the public board wherever it lands. The benchmark
+(RambleFix, run through the same harness on the same hidden clips) is drawn as a line. Entries that
+**beat** the benchmark are highlighted as **qualifiers**; the prize goes to the **single top
+qualifier**. "Beat" means strictly above (a tie is no step-up; in practice the score is continuous
+so ties don't occur). No qualifiers → no payout, prize rolls to the next round.
+
 ### Why this isn't easy (the honest crack-path)
 
 A naive entry — wrap one off-the-shelf model (whisper.cpp / faster-whisper) — gets great
